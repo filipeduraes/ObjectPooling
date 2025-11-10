@@ -1,0 +1,19 @@
+{
+  "name": "com.ideatogame.object-pooling",
+  "version": "0.1.0",
+  "displayName": "Object Pooling",
+  "description": "System that handles an easy to use object pool for game objects.",
+  "documentationUrl": "https://github.com/filipeduraes/PersistenceSystem/blob/main/README.md",
+  "changelogUrl": "https://github.com/filipeduraes/PersistenceSystem",
+  "licensesUrl": "https://github.com/filipeduraes/PersistenceSystem/blob/main/LICENSE",
+  "keywords": [
+    "Pooling",
+    "Optimization",
+    "ObjectPool"
+  ],
+  "author": {
+    "name": "Idea.ToGame",
+    "email": "fhdduraes@gmail.com",
+    "url": "https://github.com/ideatogame"
+  }
+}
