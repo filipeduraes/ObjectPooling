@@ -1,4 +1,4 @@
-# 📦 Object Pooling
+# Object Pooling
 
 A complete object pooling system for managing and optimizing the creation and destruction of GameObjects in **C#** for Unity, distributed via the Unity Package Manager (UPM).
 
@@ -6,7 +6,7 @@ Repository: [ObjectPooling](https://github.com/filipeduraes/ObjectPooling).
 
 ---
 
-## ✨ Features
+## Features
 
 * **Automatic Management** of object pools for different prefabs.
 * **Object Reservation** (Reserve Pool) to pre-instantiate objects and prevent runtime lag.
@@ -16,7 +16,7 @@ Repository: [ObjectPooling](https://github.com/filipeduraes/ObjectPooling).
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### Using UPM (Unity Package Manager)
 
@@ -39,7 +39,7 @@ Alternatively, add this entry to your `Packages/manifest.json`:
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### Reserving Objects (Warm-up)
 
