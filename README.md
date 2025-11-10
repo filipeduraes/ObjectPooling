@@ -115,7 +115,7 @@ public class Bullet : MonoBehaviour
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 ### `ObjectPool.cs`
 
@@ -131,7 +131,7 @@ A `MonoBehaviour` that contains the `SetParentDelayed(Transform child, Transform
 
 ---
 
-## 📄 License
+## License
 
 MIT License
 See [LICENSE](LICENSE) for details.
