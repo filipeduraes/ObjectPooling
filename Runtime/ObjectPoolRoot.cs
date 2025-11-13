@@ -10,7 +10,7 @@ namespace IdeaToGame.ObjectPooling
             StartCoroutine(SetParentOnNextFrame(child, parent));
         }
 
-        private IEnumerator SetParentOnNextFrame(Transform child, Transform parent)
+        private static IEnumerator SetParentOnNextFrame(Transform child, Transform parent)
         {
             yield return null;
             child.SetParent(parent);
