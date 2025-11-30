@@ -19,7 +19,7 @@ namespace IdeaToGame.ObjectPooling
 
         private void OnDisable()
         {
-            if (_prefab && gameObject && this)
+            if (_prefab && this != null)
             {
                 ObjectPool.ReturnToPool(_prefab, gameObject);
             }
