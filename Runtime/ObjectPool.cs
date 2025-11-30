@@ -1,10 +1,15 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace IdeaToGame.ObjectPooling
 {
     public static class ObjectPool
     {
+        public static event Action OnPoolCleared = delegate { };
+        
         private static readonly Dictionary<Component, Queue<Component>> ObjectPools = new();
         private static readonly Dictionary<Component, GameObject> Containers = new();
         private static ObjectPoolRoot objectPoolRoot;
@@ -51,6 +56,17 @@ namespace IdeaToGame.ObjectPooling
             }
             
             ObjectPools[prefab].Enqueue(pooledObject);
+        }
+
+        public static void DestroyAllPooledObjects()
+        {
+            foreach (Component pooledObject in ObjectPools.Values.SelectMany(pooledObjects => pooledObjects))
+            {
+                Object.Destroy(pooledObject);
+            }
+            
+            ObjectPools.Clear();
+            OnPoolCleared();
         }
 
         private static void CreatePooledObject<T>(T prefab, bool useAutomaticReturn = true) where T : Component

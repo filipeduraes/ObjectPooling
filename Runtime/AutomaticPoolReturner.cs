@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace IdeaToGame.ObjectPooling
 {
@@ -11,11 +12,26 @@ namespace IdeaToGame.ObjectPooling
             _prefab = prefab;
         }
         
+        private void OnEnable()
+        {
+            ObjectPool.OnPoolCleared += DestroySelf;
+        }
+
         private void OnDisable()
         {
             if (_prefab && gameObject && this)
             {
                 ObjectPool.ReturnToPool(_prefab, gameObject);
+            }
+            
+            ObjectPool.OnPoolCleared -= DestroySelf;
+        }
+        
+        private void DestroySelf()
+        {
+            if (this != null)
+            {
+                Destroy(gameObject);
             }
         }
     }

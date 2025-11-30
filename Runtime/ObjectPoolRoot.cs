@@ -13,7 +13,11 @@ namespace IdeaToGame.ObjectPooling
         private static IEnumerator SetParentOnNextFrame(Transform child, Transform parent)
         {
             yield return null;
-            child.SetParent(parent);
+
+            if (child != null)
+            {
+                child.SetParent(parent);
+            }
         }
     }
 }
