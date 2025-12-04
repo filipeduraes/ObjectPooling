@@ -26,14 +26,24 @@ namespace IdeaToGame.ObjectPooling
         
         public static T GetFromPool<T>(T prefab, bool useAutomaticReturn = true, Transform parent = null) where T : Component
         {
-            CreatePoolIfNotExists(prefab);
+            if (prefab == null)
+            {
+                return default;
+            }
             
-            if (ObjectPools[prefab].Count == 0)
+            CreatePoolIfNotExists(prefab);
+
+            Component component = null;
+
+            while (component == null && ObjectPools[prefab].Count > 0)
+            {
+                component = ObjectPools[prefab].Dequeue();
+            }
+            
+            if (component == null)
             {
                 CreatePooledObject(prefab, useAutomaticReturn);
             }
-
-            Component component = ObjectPools[prefab].Dequeue();
             
             T pooledObject = (T) component;
             pooledObject.gameObject.SetActive(true);
