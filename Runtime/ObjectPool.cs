@@ -62,7 +62,10 @@ namespace IdeaToGame.ObjectPooling
         {
             foreach (Component pooledObject in ObjectPools.Values.SelectMany(pooledObjects => pooledObjects))
             {
-                Object.Destroy(pooledObject.gameObject);
+                if(pooledObject != null)
+                {
+                    Object.Destroy(pooledObject.gameObject);
+                }
             }
             
             ObjectPools.Clear();
