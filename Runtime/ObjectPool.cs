@@ -42,7 +42,8 @@ namespace IdeaToGame.ObjectPooling
             
             if (component == null)
             {
-                component = CreatePooledObject(prefab, useAutomaticReturn);
+                CreatePooledObject(prefab, useAutomaticReturn);
+                component = ObjectPools[prefab].Dequeue();
             }
             
             T pooledObject = (T) component;
