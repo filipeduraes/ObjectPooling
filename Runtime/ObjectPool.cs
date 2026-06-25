@@ -78,8 +78,17 @@ namespace IdeaToGame.ObjectPooling
                     Object.Destroy(pooledObject.gameObject);
                 }
             }
+
+            foreach (GameObject container in Containers.Values)
+            {
+                if (container != null)
+                {
+                    Object.Destroy(container);
+                }
+            }
             
             ObjectPools.Clear();
+            Containers.Clear();
             OnPoolCleared();
         }
 
